@@ -58,9 +58,9 @@ public class StepTracker {
                 N = 0;
             }
 
-        for (int i = 0; i < NumDay.length; i++) {
-            if (NumDay[i] > max) {
-                max = NumDay[i];
+        for (int i: NumDay) {
+            if (i > max) {
+                max = i;
             }
         }
         if (max >= 2) {

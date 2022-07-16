@@ -1,13 +1,10 @@
 public class Converter {
-    int sum;
 
     double contDistance(int sum){
-        double distance = (sum * 0.75) / 1000;
-        return distance;
+        return (sum * 0.75) / 1000;
     }
 
     double countCal(int sum){
-        double kcal = (sum * 50) / 1000;
-        return kcal;
+        return (sum * 50.0) / 1000;
     }
 }
