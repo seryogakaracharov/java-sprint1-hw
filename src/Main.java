@@ -15,7 +15,10 @@ public class Main {
             if(choice == 1) {
                 System.out.println("Введите номер месяца (от 0 до 11)");
                 int month = scanner.nextInt();
-                if (month >11  ) {
+                if (month >11 ) {
+                    System.out.println("Неверный номер месяца.");
+                    break;
+                } else if (month < 0) {
                     System.out.println("Неверный номер месяца.");
                     break;
                 }
@@ -23,6 +26,9 @@ public class Main {
                 int day = scanner.nextInt();
                 if (day >29  ) {
                     System.out.println("Неверный номер дня.");
+                    break;
+                } else if (day < 0) {
+                    System.out.println("Неверный номер месяца.");
                     break;
                 }
                 System.out.println("Введите количетсво шагов");
@@ -34,15 +40,24 @@ public class Main {
             } else if(choice == 2) {
                 System.out.println("Укажите номер месяца:");
                 int month = scanner.nextInt();
-                int sum = stepTracker.printSum(month);
+                if (month >11 ) {
+                    System.out.println("Неверный номер месяца.");
+                    break;
+                } else if (month < 0) {
+                    System.out.println("Неверный номер месяца.");
+                    break;
+                }
+                int sum = stepTracker.calcSum(month);
+                int maxStep = stepTracker.calcMaxStep(month);
+                stepTracker.printStepOnDay(month);
                 System.out.println("Общее количество шагов за месяц: " + sum);
-                System.out.println("Максимальное пройденное количество шагов в месяце: " + sum);
+                System.out.println("Максимальное пройденное количество шагов в месяце: " + maxStep);
                 System.out.println("Среднее количетсво шагов: " + sum/30);
                 System.out.println("Пройденная дистанция за месяц " + converter.contDistance(sum) + " км");
                 System.out.println("Количество сожженных килокалорий " + converter.countCal(sum));
 
-                if (stepTracker.searchSeries(month, ambitionStep) >= 2) {
-                    System.out.println("Лучшая серия: " + stepTracker.searchSeries(month, ambitionStep) + " дней");
+                if (stepTracker.searchBestSeries(month, ambitionStep) >= 2) {
+                    System.out.println("Лучшая серия: " + stepTracker.searchBestSeries(month, ambitionStep) + " дней");
                 }
             } else if(choice == 3) {
                 System.out.println("Укажите новую цель по колиеству шагов в день: ");
