@@ -15,21 +15,18 @@ public class Main {
             if(choice == 1) {
                 System.out.println("Введите номер месяца (от 0 до 11)");
                 int month = scanner.nextInt();
-                if (month >11 ) {
+                if (month > 11 || month < 0 ) {
                     System.out.println("Неверный номер месяца.");
-                    break;
-                } else if (month < 0) {
-                    System.out.println("Неверный номер месяца.");
-                    break;
+                    continue;
                 }
-                System.out.println("Введите номер дня (от 0 до 29)");
+                System.out.println("Введите номер дня (от 1 до 30)");
                 int day = scanner.nextInt();
                 if (day >29  ) {
                     System.out.println("Неверный номер дня.");
-                    break;
+                    continue;
                 } else if (day < 0) {
-                    System.out.println("Неверный номер месяца.");
-                    break;
+                    System.out.println("Неверный номер дня.");
+                    continue;
                 }
                 System.out.println("Введите количетсво шагов");
                 int step = scanner.nextInt();
@@ -40,10 +37,7 @@ public class Main {
             } else if(choice == 2) {
                 System.out.println("Укажите номер месяца:");
                 int month = scanner.nextInt();
-                if (month >11 ) {
-                    System.out.println("Неверный номер месяца.");
-                    break;
-                } else if (month < 0) {
+                if (month > 11 || month < 0) {
                     System.out.println("Неверный номер месяца.");
                     break;
                 }
